@@ -1,7 +1,6 @@
-
 public enum AttributeType
 {
-    Health,
-    Attack,
-    Agility
+    Vigor = 0,
+    Power = 1,
+    Agility = 2
 }

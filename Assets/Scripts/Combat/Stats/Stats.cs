@@ -7,10 +7,22 @@ using UnityEngine;
 public class Stats
 {
     public StatsType type;
-    public float Value => baseValue + modifiers.Sum();
+    public float Value
+    {
+        get
+        {
+            if(modifiers != null && modifiers.Count > 0)
+            {
+                return baseValue + modifiers.Sum();
+            }
+
+            modifiers = new();
+            return baseValue;
+        }
+    }
 
     [SerializeField] private float baseValue;
-    [SerializeField] private List<float> modifiers;
+    private List<float> modifiers = new();
 
     public Stats(
         StatsType type,

@@ -7,25 +7,25 @@ using UnityEngine;
 public class Attribute
 {
     public AttributeType type;
-    public float Value => baseValue + modfiers.Sum();
+    public int Level => baseLevel + modfiers.Sum();
         
-    [SerializeField] private float baseValue;
-    [SerializeField] private List<float> modfiers;
+    [SerializeField] private int baseLevel;
+    private List<int> modfiers = new();
 
     public Attribute(
         AttributeType type,
-        float value)
+        int value)
     {
         this.type = type;
-        this.baseValue = value;
+        this.baseLevel = value;
     }
         
-    public void AddModifier(float value)
+    public void AddModifier(int value)
     {
         modfiers.Add(value);
     }
 
-    public void RemoveModifier(float value)
+    public void RemoveModifier(int value)
     {
         modfiers.Remove(value);
     }

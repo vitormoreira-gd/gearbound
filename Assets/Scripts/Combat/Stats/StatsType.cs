@@ -2,7 +2,7 @@ public enum StatsType
 {
     Health,
     Attack,
-    Regeneration,
+    Regen,
     Speed,
-    Velocity
+    AttackSpeed
 }
