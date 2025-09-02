@@ -1,0 +1,288 @@
+{
+    "creatures": [
+        {
+            "name": "Goblin",
+            "type": 2,
+            "attributes": [],
+            "stats": [
+                {
+                    "type": 0,
+                    "_baseValue": 0.0
+                },
+                {
+                    "type": 0,
+                    "_baseValue": 0.0
+                },
+                {
+                    "type": 0,
+                    "_baseValue": 0.0
+                },
+                {
+                    "type": 0,
+                    "_baseValue": 0.0
+                },
+                {
+                    "type": 0,
+                    "_baseValue": 0.0
+                }
+            ],
+            "equipment": [],
+            "aiConfig": {
+                "perceptionType": "Sphere",
+                "perceptionRange": 10.0,
+                "targetingRule": "Closest",
+                "pathProvider": "RandomWalk",
+                "avoidance": "SimpleAvoidance"
+            }
+        },
+        {
+            "name": "Orc",
+            "type": 2,
+            "attributes": [],
+            "stats": [
+                {
+                    "type": 0,
+                    "_baseValue": 0.0
+                },
+                {
+                    "type": 0,
+                    "_baseValue": 0.0
+                },
+                {
+                    "type": 0,
+                    "_baseValue": 0.0
+                },
+                {
+                    "type": 0,
+                    "_baseValue": 0.0
+                },
+                {
+                    "type": 0,
+                    "_baseValue": 0.0
+                }
+            ],
+            "equipment": [],
+            "aiConfig": {
+                "perceptionType": "Sphere",
+                "perceptionRange": 10.0,
+                "targetingRule": "Closest",
+                "pathProvider": "RandomWalk",
+                "avoidance": "SimpleAvoidance"
+            }
+        },
+        {
+            "name": "Rat",
+            "type": 3,
+            "attributes": [],
+            "stats": [
+                {
+                    "type": 0,
+                    "_baseValue": 0.0
+                },
+                {
+                    "type": 0,
+                    "_baseValue": 0.0
+                },
+                {
+                    "type": 0,
+                    "_baseValue": 0.0
+                },
+                {
+                    "type": 0,
+                    "_baseValue": 0.0
+                },
+                {
+                    "type": 0,
+                    "_baseValue": 0.0
+                }
+            ],
+            "equipment": [],
+            "aiConfig": {
+                "perceptionType": "Sphere",
+                "perceptionRange": 10.0,
+                "targetingRule": "Closest",
+                "pathProvider": "RandomWalk",
+                "avoidance": "SimpleAvoidance"
+            }
+        },
+        {
+            "name": "Boar",
+            "type": 3,
+            "attributes": [],
+            "stats": [
+                {
+                    "type": 0,
+                    "_baseValue": 0.0
+                },
+                {
+                    "type": 0,
+                    "_baseValue": 0.0
+                },
+                {
+                    "type": 0,
+                    "_baseValue": 0.0
+                },
+                {
+                    "type": 0,
+                    "_baseValue": 0.0
+                },
+                {
+                    "type": 0,
+                    "_baseValue": 0.0
+                }
+            ],
+            "equipment": [],
+            "aiConfig": {
+                "perceptionType": "Sphere",
+                "perceptionRange": 10.0,
+                "targetingRule": "Closest",
+                "pathProvider": "RandomWalk",
+                "avoidance": "SimpleAvoidance"
+            }
+        },
+        {
+            "name": "Dragon",
+            "type": 3,
+            "attributes": [
+                {
+                    "type": 0,
+                    "_baseLevel": 25
+                },
+                {
+                    "type": 1,
+                    "_baseLevel": 45
+                },
+                {
+                    "type": 2,
+                    "_baseLevel": 34
+                }
+            ],
+            "stats": [
+                {
+                    "type": 0,
+                    "_baseValue": 5000.0
+                },
+                {
+                    "type": 2,
+                    "_baseValue": 100.0
+                },
+                {
+                    "type": 1,
+                    "_baseValue": 1200.0
+                },
+                {
+                    "type": 3,
+                    "_baseValue": 60.0
+                },
+                {
+                    "type": 4,
+                    "_baseValue": 1.3600000143051148
+                }
+            ],
+            "equipment": [],
+            "aiConfig": {
+                "perceptionType": "",
+                "perceptionRange": 0.0,
+                "targetingRule": "",
+                "pathProvider": "",
+                "avoidance": ""
+            }
+        },
+        {
+            "name": "Player",
+            "type": 0,
+            "attributes": [
+                {
+                    "type": 0,
+                    "_baseLevel": 10
+                },
+                {
+                    "type": 1,
+                    "_baseLevel": 10
+                },
+                {
+                    "type": 2,
+                    "_baseLevel": 10
+                }
+            ],
+            "stats": [
+                {
+                    "type": 0,
+                    "_baseValue": 2640.0
+                },
+                {
+                    "type": 2,
+                    "_baseValue": 26.399999618530275
+                },
+                {
+                    "type": 1,
+                    "_baseValue": 530.0
+                },
+                {
+                    "type": 3,
+                    "_baseValue": 26.0
+                },
+                {
+                    "type": 4,
+                    "_baseValue": 0.8199999928474426
+                }
+            ],
+            "equipment": [],
+            "aiConfig": {
+                "perceptionType": "",
+                "perceptionRange": 0.0,
+                "targetingRule": "",
+                "pathProvider": "",
+                "avoidance": ""
+            }
+        },
+        {
+            "name": "Boss 1",
+            "type": 1,
+            "attributes": [
+                {
+                    "type": 0,
+                    "_baseLevel": 10
+                },
+                {
+                    "type": 1,
+                    "_baseLevel": 10
+                },
+                {
+                    "type": 2,
+                    "_baseLevel": 10
+                }
+            ],
+            "stats": [
+                {
+                    "type": 0,
+                    "_baseValue": 5000.0
+                },
+                {
+                    "type": 2,
+                    "_baseValue": 26.399999618530275
+                },
+                {
+                    "type": 1,
+                    "_baseValue": 600.0
+                },
+                {
+                    "type": 3,
+                    "_baseValue": 26.0
+                },
+                {
+                    "type": 4,
+                    "_baseValue": 0.8199999928474426
+                }
+            ],
+            "equipment": [],
+            "aiConfig": {
+                "perceptionType": "",
+                "perceptionRange": 0.0,
+                "targetingRule": "",
+                "pathProvider": "",
+                "avoidance": ""
+            }
+        }
+    ]
+}

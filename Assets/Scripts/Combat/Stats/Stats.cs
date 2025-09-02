@@ -13,15 +13,16 @@ public class Stats
         {
             if(modifiers != null && modifiers.Count > 0)
             {
-                return baseValue + modifiers.Sum();
+                return _baseValue + modifiers.Sum();
             }
 
             modifiers = new();
-            return baseValue;
+            return _baseValue;
         }
     }
+    public float BaseValue => _baseValue;
 
-    [SerializeField] private float baseValue;
+    [SerializeField] private float _baseValue;
     private List<float> modifiers = new();
 
     public Stats(
@@ -30,8 +31,10 @@ public class Stats
         )
     {
         this.type = type;
-        baseValue = value;
+        _baseValue = value;
     }
+
+    public void SetBaseValue(float value) => _baseValue = value;
 
     public void AddModifier(float value)
     {

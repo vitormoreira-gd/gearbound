@@ -40,6 +40,14 @@ public class ActorBrain : MonoBehaviour
         Tick();
     }
 
+    public void InitFromCreature(Creature creautre)
+    {
+        //switch ()
+        //{
+
+        //}
+    }
+
     public void SetDestination(Vector3 destination)
     {
         _destination = destination;

@@ -19,8 +19,6 @@ public class Actor : MonoBehaviour
         _body = GetComponent<ActorBody>();
         _brain = GetComponent<ActorBrain>();
 
-        StatsData.LoadStats();
-
         Creature creature = CreatureFactory.CreateCreature(
             name: "Player",
             creatureType: CreatureType.Player,
@@ -30,6 +28,13 @@ public class Actor : MonoBehaviour
 
         Info.Init(creature);
         Placeholder_GoToOtherPlace();
+    }
+
+    public void Init(Creature creature)
+    {
+        Info.Init(creature);
+
+        Brain.InitFromCreature(creature);
     }
 
     [ContextMenu("Move")]

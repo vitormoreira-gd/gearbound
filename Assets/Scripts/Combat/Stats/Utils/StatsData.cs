@@ -24,8 +24,10 @@ public static class StatsData
         Debug.Log("Tabela de Stats carregadas com sucesso.");
     }
 
-    public static float GettStatsByLevel(StatsType type, int level)
+    public static float GetStatsByLevel(StatsType type, int level)
     {
+        LoadStats();
+
         float result = type switch
         {
             StatsType.Health        => Health[level],

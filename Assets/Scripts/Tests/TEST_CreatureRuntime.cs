@@ -27,7 +27,7 @@ public class TEST_CreatureRuntime : MonoBehaviour
     [ContextMenu("Add Equip")]
     private void AddEquip()
     {
-        Equipment newEquip = new Equipment(equip.name, equip.description, equip.type, equip.slot, equip.stats, equip.scalings);
+        Equipment newEquip = new Equipment(equip.name, equip.description, equip.type, equip.slot, equip.stats/*, equip.scalings*/);
 
         Player.AddEquipment(newEquip);
     }

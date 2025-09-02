@@ -7,9 +7,10 @@ using UnityEngine;
 public class Attribute
 {
     public AttributeType type;
-    public int Level => baseLevel + modfiers.Sum();
+    public int Level => _baseLevel + modfiers.Sum();
+    public int BaseLevel => _baseLevel;
         
-    [SerializeField] private int baseLevel;
+    [SerializeField] private int _baseLevel;
     private List<int> modfiers = new();
 
     public Attribute(
@@ -17,8 +18,10 @@ public class Attribute
         int value)
     {
         this.type = type;
-        this.baseLevel = value;
+        this._baseLevel = value;
     }
+
+    public void SetBaseLevel(int value) => _baseLevel = value;
         
     public void AddModifier(int value)
     {

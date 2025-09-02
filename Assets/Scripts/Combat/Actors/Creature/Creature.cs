@@ -18,6 +18,7 @@ public class Creature
         new(type: StatsType.AttackSpeed,    value: 0.5f)
     };
     public List<Equipment> equipment = new();
+    public CreatureAIConfig aiConfig;
 
     public Creature(
         string name,
@@ -28,23 +29,26 @@ public class Creature
         this.type = type;
         this.attributes = attributes;
 
-        foreach (StatsType stats in Enum.GetValues(typeof(StatsType))) 
+        if (attributes != null && attributes.Count > 0)
         {
-            AttributeType attributeType = stats switch
+            foreach (StatsType stats in Enum.GetValues(typeof(StatsType))) 
             {
-                StatsType.Health        => AttributeType.Vigor,
-                StatsType.Regen         => AttributeType.Vigor,
-                StatsType.Attack        => AttributeType.Power,
-                StatsType.Speed         => AttributeType.Agility,
-                StatsType.AttackSpeed   => AttributeType.Agility,
-                _ => AttributeType.Vigor
-            };
+                AttributeType attributeType = stats switch
+                {
+                    StatsType.Health        => AttributeType.Vigor,
+                    StatsType.Regen         => AttributeType.Vigor,
+                    StatsType.Attack        => AttributeType.Power,
+                    StatsType.Speed         => AttributeType.Agility,
+                    StatsType.AttackSpeed   => AttributeType.Agility,
+                    _ => AttributeType.Vigor
+                };
 
-            Attribute attribute = attributes.FirstOrDefault(a => a.type == attributeType);
-            float statsValue = StatsData.GettStatsByLevel(stats, attribute.Level);
-            int statsIndex = this.stats.ToList().FindIndex(s => s.type == stats);
+                Attribute attribute = attributes.FirstOrDefault(a => a.type == attributeType);
+                float statsValue = StatsData.GetStatsByLevel(stats, attribute.Level);
+                int statsIndex = this.stats.ToList().FindIndex(s => s.type == stats);
 
-            this.stats[statsIndex] = new Stats(stats, statsValue);
+                this.stats[statsIndex] = new Stats(stats, statsValue);
+            }
         }
     }
 
@@ -58,7 +62,17 @@ public class Creature
             UnityEngine.Debug.Log(stats.Value);
         }
 
-        foreach (ScalingAttribute scaling in equip.scalings)
+        List<ScalingAttribute> scalings = new();
+
+        foreach (var stats in equip.stats)
+        {
+            foreach (var scale in stats.scalings)
+            {
+                scalings.Add(scale);
+            }
+        }
+
+        foreach (ScalingAttribute scaling in scalings)
         {
             float scalingFactor = scaling.type switch
             {
