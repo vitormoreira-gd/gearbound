@@ -7,7 +7,7 @@ using UnityEngine;
 public class Attribute
 {
     public AttributeType type;
-    public int Level => _baseLevel + modfiers.Sum();
+    public int Level => _baseLevel + (modfiers?.Sum() ?? 0);
     public int BaseLevel => _baseLevel;
         
     [SerializeField] private int _baseLevel;

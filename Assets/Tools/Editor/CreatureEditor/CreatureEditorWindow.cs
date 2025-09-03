@@ -126,7 +126,7 @@ public class CreatureEditorWindow : EditorWindow
             var attr = creature.attributes[i];
             EditorGUILayout.BeginHorizontal();
             attr.type = (AttributeType)EditorGUILayout.EnumPopup(attr.type, GUILayout.Width(120));
-            attr.SetBaseLevel(EditorGUILayout.IntField(attr.Level, GUILayout.Width(50)));
+            attr.SetBaseLevel(EditorGUILayout.IntField(attr.BaseLevel, GUILayout.Width(50)));
             if (GUILayout.Button("X", GUILayout.Width(20)))
             {
                 creature.attributes.RemoveAt(i);

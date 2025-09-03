@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
 using System.IO;
-using PlasticPipe.PlasticProtocol.Messages;
 
 public class PathCreatorWindow : EditorWindow
 {
@@ -11,7 +10,7 @@ public class PathCreatorWindow : EditorWindow
     [System.Serializable]
     public class PathDefinitionWrapper
     {
-        public List<PathDefinition> _paths = new();
+        public List<PathDefinition> paths = new();
     }
 
     public PathDefinitionWrapper pathData;
@@ -104,13 +103,13 @@ public class PathCreatorWindow : EditorWindow
         generalScroll = EditorGUILayout.BeginScrollView(generalScroll);
         EditorGUILayout.BeginVertical();
 
-        for (int i = 0; i < pathData._paths.Count; i++)
+        for (int i = 0; i < pathData.paths.Count; i++)
         {
-            if (GUILayout.Button($"{pathData._paths[i].name}"))
+            if (GUILayout.Button($"{pathData.paths[i].name}"))
             {
                 selectedIndex = i;
                 FindOrCreatePathCreator();
-                InitializePathCreator(pathData._paths[i]);
+                InitializePathCreator(pathData.paths[i]);
                 isEditing = true;
 
                 selectedNodeIndex = 0;
@@ -129,13 +128,13 @@ public class PathCreatorWindow : EditorWindow
 
     private void DrawEditingMode()
     {
-        if(selectedIndex < 0 || selectedIndex >= pathData._paths.Count)
+        if(selectedIndex < 0 || selectedIndex >= pathData.paths.Count)
         {
             isEditing = false;
             return;
         }
 
-        PathDefinition currentPath = pathData._paths[selectedIndex];
+        PathDefinition currentPath = pathData.paths[selectedIndex];
 
         EditorGUILayout.LabelField($"Editando :: {currentPath.name} ::", EditorStyles.boldLabel);
         EditorGUILayout.Space();

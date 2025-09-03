@@ -11,6 +11,7 @@ public class Actor : MonoBehaviour
     private ActorBody _body;
     private ActorBrain _brain;
 
+    public string pathName;
     [SerializeField] private Transform objectToFollow;
 
     private void Awake()
@@ -27,7 +28,7 @@ public class Actor : MonoBehaviour
             agilityLevel: 10);
 
         Info.Init(creature);
-        Placeholder_GoToOtherPlace();
+        //Placeholder_GoToOtherPlace();
     }
 
     public void Init(Creature creature)

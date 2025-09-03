@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PatrolPathProvider : IPathProvider
+public class PatrolPathProvider_PingPong : IPathProvider
 {
     private List<Vector3> waypoints = new();
     private int currentIndex;
 
-    public PatrolPathProvider(
+    public PatrolPathProvider_PingPong(
         List<Vector3> waypoints)
     {
         this.waypoints = waypoints;
@@ -15,17 +15,18 @@ public class PatrolPathProvider : IPathProvider
 
     public Vector3 GetNextDestination(Actor actor)
     {
-        if (waypoints.Count == 0) return actor.transform.position;
+        if(waypoints.Count == 0) return actor.transform.position;
 
         Vector3 destination = waypoints[currentIndex];
 
-        if (Vector3.Distance(actor.transform.position, destination) < 0.1f)
+        if(Vector3.Distance(actor.transform.position, destination) < 0.1f)
         {
             currentIndex = (currentIndex + 1);
 
             if (currentIndex >= waypoints.Count)
             {
-
+                waypoints.Reverse();
+                currentIndex = 0;
             }
         }
 

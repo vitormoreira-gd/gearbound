@@ -6,12 +6,14 @@ public class ActorBody : MonoBehaviour
     private ActorInfo _actorInfo;
     private Animator _animator;
     private Rigidbody _rb;
+    private SpriteRenderer _spriteRenderer;
 
     private void Awake()
     {
         _actorInfo = GetComponent<ActorInfo>();
         _animator = GetComponentInChildren<Animator>();
         _rb = GetComponent<Rigidbody>();
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void OnEnable()
@@ -54,7 +56,7 @@ public class ActorBody : MonoBehaviour
         {
             float moveSpeed = _actorInfo.GetStat(StatsType.Speed);
 
-            _rb.linearVelocity = direction.normalized * (moveSpeed * 10f) * Time.deltaTime;
+            _rb.linearVelocity = direction.normalized * (1 - (100 / (100 + moveSpeed))) * 10f;
         }
 
         if(_animator != null)
@@ -62,6 +64,7 @@ public class ActorBody : MonoBehaviour
             _animator.SetFloat("MoveX", direction.x);
             _animator.SetFloat("MoveY", direction.y);
             _animator.SetBool("IsMoving", direction.sqrMagnitude > 0.01f);
+            _spriteRenderer.flipX = _rb.linearVelocity.x < 0;
         }
     }
 

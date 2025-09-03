@@ -23,6 +23,8 @@ public class ActorBrain : MonoBehaviour
     private IPathProvider pathProvider;
     private IAvoidance avoidance;
 
+    private List<Vector3> waypoints = new();
+
     private void Awake()
     {
         _actorInstance = GetComponent<Actor>();
@@ -32,6 +34,20 @@ public class ActorBrain : MonoBehaviour
     private void Start()
     {
         StateMachine?.ChangeState(new IdleState(), this);
+
+        var path = PathLoader.GetPathByName(ActorInstance.pathName);
+
+        if (path == null) return;
+
+        waypoints = new List<Vector3>();
+
+        foreach (var node in path.nodes)
+        {
+            waypoints.Add(node.position);
+        }
+
+        //pathProvider = new RandomPathProvider(path, 5);
+        pathProvider = new PatrolPathProvider_PingPong(waypoints);
     }
 
     private void Update()
@@ -70,5 +86,16 @@ public class ActorBrain : MonoBehaviour
 
         // Body delegate
         ActorInstance.Body.Move(desiredDirection);
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (waypoints.Count <= 0) return;
+
+        Gizmos.color = Color.blue;
+        foreach (var waypoint in waypoints)
+        {
+            Gizmos.DrawSphere(waypoint, 0.2f);
+        }
     }
 }

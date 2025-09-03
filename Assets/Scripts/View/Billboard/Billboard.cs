@@ -6,6 +6,8 @@ public class Billboard : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private bool lockY = true;
+    [SerializeField] private bool doRandomFlip = true;
+    [SerializeField] private bool realTimeSortingOrderUpdate = false;
 
     private void Start()
     {
@@ -17,33 +19,19 @@ public class Billboard : MonoBehaviour
         if(spriteRenderer == null)
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
-            //LookToCamera();
             DoRandomFlip();
+            UpdateSortingLayer();
         }
     }
 
     private void LateUpdate()
     {
-        UpdateSortingLayer();
-    }
-
-    private void LookToCamera()
-    {
-        if (mainCamera == null) return;
-
-        Vector3 direction = mainCamera.transform.position;
-
-        if (lockY)
-        {
-            direction.x = transform.position.x;
-        }
-
-        transform.LookAt(direction);
+        if(realTimeSortingOrderUpdate) UpdateSortingLayer();
     }
 
     private void DoRandomFlip()
     {
-        if (spriteRenderer == null) return;
+        if (spriteRenderer == null || !doRandomFlip) return;
 
         spriteRenderer = GetComponent<SpriteRenderer>();
 
